@@ -1,4 +1,4 @@
 # ImmediateNBA
 Chrome Extension For watch nba games
 
-Version 1.0.0
+Version 1.0.1
