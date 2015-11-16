@@ -1,0 +1,24 @@
+{
+    "name": "ImmediateNBA",
+    "manifest_version": 2,
+    "version": "1.0.0",
+    "description": "Immediate NBA Score",
+    "icons": {
+        "16": "images/icon_16.png",
+        "32": "images/icon_32.png",
+        "64": "images/icon_64.png",
+        "128": "images/icon_128.png"
+    },
+    "background": {
+      "page": "background.html"
+    },
+    "permissions": [
+        "tabs",
+        "http://data.nba.com/"
+    ],
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_title": "觀看即時BOX",
+        "default_popup": "popup.html"
+    }
+}

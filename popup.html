@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="popup.css?20151028">
+    <link rel="stylesheet" href="popup_other.css?20151105">
+</head>
+
+<body>
+    <div id="current" style="width: 100%">
+        <div style="display:none;">
+
+            <ul id="menu-bar" class="vert-one">
+                
+            </ul>
+            <div class="location"> >>> </div>
+        </div>
+        <div>
+            <select name="game-menu" id="game-menu"></select>
+        </div>
+
+        <div id="temp" class="hide"></div>
+        <div id="games" class="hide">
+            <div id="home">
+                <img src="images/teams/NBA.png" height="64" width="64" />
+                <div id="home_score" class="score"></div>
+            </div>
+            <div id="vs">
+                <img src="images/vs.png" height="64" width="64" alt="">
+            </div>
+            <div id="visitor">
+                <img src="images/teams/NBA.png" height="64" width="64" />
+                <div id="visitor_score" class="score"></div>
+            </div>
+        </div>
+        <div id="detail"></div>
+    </div>
+    <script src="popup.js?20151105" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

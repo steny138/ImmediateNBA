@@ -1,0 +1,76 @@
+#current
+{
+  height:300px;
+}
+
+#temp::before {
+  content: url(images/sad-and-sorry-smiley-emoticon.gif);
+  display: block;
+  width: 97px;
+  height: 62px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+#games {
+    text-align: center;
+}
+#games div {
+  position: relative;
+  display: inline-block;
+}
+#home_score.score,#visitor_score.score
+{
+  color: #056ab1;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: arial;
+  display: block;
+}
+/*----------------Menu bar--------------------------*/
+div.location
+{
+  position: relative;
+  background: #600;
+  color: #fff;
+  margin-left: 201px;
+  height:40px;
+  width:40px;
+  text-align: center;
+  vertical-align: middle;
+  /* support Safari, Chrome */
+  -webkit-border-radius: 5px;
+  /* support firefox */
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+ul.vert-one {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+    font: bold 16px Helvetica, Verdana, Arial, sans-serif;
+    line-height: 165%;
+    width: 200px;
+    height: 800px;
+    position: absolute;
+}
+ul.vert-one li {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #4D0000;
+    border-bottom: 1px solid #761A1A;
+}
+ul.vert-one li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background: #600;
+    padding: 0 0 0 20px;
+    width: 180px;
+}
+ul.vert-one li a:hover {
+    background: #900 url("images/vert-one_arrow.gif") no-repeat 0 9px;
+}
+ul.vert-one li a.current, ul.vert-one li a.current:hover {
+    background: #933 url("images/vert-one_arrow.gif") no-repeat 0 9px;
+}

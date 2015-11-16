@@ -1,0 +1,2439 @@
+/* CSS Document */
+/* ----------------------------------------------------------------------------
+	Contains everything specific to the NBA Game Info. Do not put any non-Gameinfo information in this document.	*/
+	/* NOTE: Anything beginning with [*:first-child+html] is an IE7-specific hack */
+/*	----------------------------------------------------------------------------
+	Table Of Contents
+	1. Page Shell (This series of styles can be deleted after the actual page is shell is developed)		
+
+*/		
+/*  -----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+	(1) STRUCTURE  */	
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	font-size:inherit;
+	min-width: 300px;
+}
+a {
+	text-decoration:none;
+	color:#0066cc;
+}
+a:hover{
+	text-decoration:underline !important;
+}
+.b {
+	font-weight:bold;
+}
+.active{
+	color:#000 !important;
+}
+.nonactive{
+	font-weight:normal !important;
+}
+.show {
+	display:block;
+}
+.hide {
+	display:none !important;
+}
+.last {
+	border:none !important;
+}
+a img{
+	border:none;
+}
+.nbaGIbold{
+	font-weight:bold;
+}
+#caps{
+	text-transform:uppercase;
+}
+ul li{
+	list-style-type:none;
+}
+.bborder{
+	border-bottom:1px solid #ccc;
+}
+#nbaMainSection #nbaContent table td {vertical-align:middle;}
+/*  -----------------------------------------------------------------------------
+
+
+(1) PAGE SHELL  (Temporary page layout) <-- Temporary? lolz...  */
+#nbaGIpage{
+	width:1027px;	
+}
+#header{
+	width:1027px;
+	height:53px;
+	margin-bottom:10px;
+}
+#nbaGIAdSpaces{
+	width:950px;
+	height:90px;
+	margin:0px auto;
+}
+#nbaLogo{
+	width:62px;
+	height:125px;
+	float:left;
+}
+#nbaBody{
+	width:940px;
+	background-color:#FFFFFF;
+	margin-bottom:20px;
+	text-align:left;
+	float:left;
+	position:relative;
+}
+#nbaMainSection #nbaContent {
+	width:1000px;
+}
+#nbaGIAds{
+	width:1072px;
+	background:#fff;
+	padding-bottom:10px;
+}
+#nbaGI728Ad{
+	width:728px;
+	height:90px;
+	background:#ccc;
+	margin-right:10px;
+	float:left;
+}
+#nbaGI200Ad{
+	width:200px;
+	height:90px;
+	background:#ccc;
+	float:left;
+}
+#nbaGIMain{
+	width:968px;
+	background:#fff;
+	margin:0 auto;
+}
+#nbaGITracker{
+	width:938px;
+	height:116px;
+	float:left;
+}
+#nbaGIDatenTime{
+	width:948px;
+	height:74px;
+	margin:0px auto;
+	border-bottom:1px solid #ccc;
+	clear:both;
+}
+#nbaGIStation{
+	float:left;
+}
+.nbaAboveGameTracker{
+	margin:5px auto;
+	width:918px;	
+}
+#nbaGITv{
+	float:left;
+	position:relative;
+	z-index:10;
+}
+#nbaGITv img{
+	width:64px;
+	height:40px;
+	margin:15px 0px 0px 10px;
+	float:left;
+}
+#nbaGIDatenTime h1{
+	position:relative;
+	left:20px;
+	top:10px;
+	font-size:22px;
+	.font-size:20px;
+	font-weight:bold;
+	color:#333333;
+	width:450px;
+	.width:420px;
+	text-transform:uppercase;
+}
+.nbaGITime{
+	position:relative;
+	top:10px;
+	left:20px;
+	text-transform:uppercase;
+	color:#666666;
+	font-size:16px;
+	font-weight:bold;
+	width:450px;
+	.width:355px;
+}
+#nbaGICommun{
+	height:53px;
+	float:right;
+	position:relative;
+	top:10px;
+}
+#nbaGICommun table td{
+	text-align:center;
+	padding:3px;
+}
+.nbaGILocat{
+	text-transform:capitalize;
+	font-size:12px;
+}
+#nbaGICommunImg{
+	border-right:1px solid #ccc;
+}
+
+/*---Scores Section----*/
+#nbaGIScores{
+	width:652px;
+	/*height:355px;*/
+	float:left;
+	background:#fff url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGICourt.jpg) no-repeat;
+}
+#nbaGIGameScore{
+	height:120px;
+	position:relative;
+	top:30px;
+	padding-left:10px;
+	width:633px;
+}
+#nbaGIGameScore h1{
+	float:left;
+	font-family:arial;
+	font-weight:bold;
+	font-size:55px;
+	width:91px;
+	color:#333333;
+	line-height:76px;
+	text-align:center;
+}
+
+.nbaGIAway{
+	float:left;
+	margin:0px 40px 0px 46px;
+}
+
+.nbaGIHome{
+	float:left;
+	margin:0px 43px 0px 37px;
+}
+
+.nbaGIAway img, .nbaGIHome img{
+	height: 76px;
+	width: 120px;
+}
+
+#nbaGIMNotes{
+	height:18px;
+	float:left;
+	position:relative;
+	left:117px;
+	top:20px;
+	width:360px;
+	.width:400px;
+	-width:450px;
+	-left:112px;
+}
+.nbaGImatchup{
+	text-align:center;
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+	position:relative;
+	color:#000;
+	left:117px;
+	top:30px;
+	width:360px;
+	.width:400px;
+	-width:450px;
+	-left:112px;
+	
+}
+.nbaGImatchup a{
+	font-size:12px;
+	font-weight:bold;
+	
+}
+.nbaGIMIAway{
+	float:left;
+	padding-left:18px;
+	-padding-left:9px;
+	margin:0px 50px 0px 20px;
+}
+.nbaGIMIHome{
+	float:right;
+	padding-left:18px;
+	-padding-left:9px;
+	margin:0px 50px 0px 20px;
+	.margin-right:80px;
+	-margin-right:70px;
+}
+
+#nbaGIGmeLve{
+	width:678px;
+	position:relative;
+	clear:both;
+	height:61px;
+	margin-top:34px;
+	left:100px;
+}
+#nbaGIGmeLve .nbaGILive{
+	float:left;
+	margin:0px;
+	padding:0px;
+	margin-right:2px;
+}
+#nbaGITmeQtr{
+	width:257px;
+	height:61px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIGameScore.gif) no-repeat;
+	float:left;
+}
+#nbaGITmeQtr h2{
+	float:left;
+	font-size:30px;
+	font-weight:bold;
+	position:relative;
+	text-align:center;
+	width:100px;
+}
+#nbaGITmeQtr p{
+	width:102px;
+	font-size:14px;
+	font-weight:bold;
+	color:#666666;
+	text-transform:uppercase;
+	clear:both;
+	float:left;
+	position:relative;
+	text-align:center;
+}
+#nbaGITmeQtr table{
+	position:relative;
+	top:2px;
+	left:3px;
+	border-left:1px solid #ccc;
+}
+#nbaGIQtrScrs table td{
+	border:1px solid #ccc;
+	font-size:11px;
+	color:#666666;
+}
+.nbaGILisLive{
+	position:relative;
+	left:30px;
+	clear:both;
+	width:100%;
+	padding-top:5px;
+	font-size:15px;
+}
+#nbaGITmeQtr table td, #nbaGIQtrScrs table td{
+	text-align:center;
+}
+.nbaGIATeam, .nbaGIHTeam{
+	text-transform:uppercase;
+	font-size:14px;
+	font-weight:bold;
+}
+.nbaGIATeam, .nbaGIAScr, .nbaGIATSml{
+	border-bottom:1px solid #ccc;
+}
+.nbaGIAScr, .nbaGIHScr{
+	font-size:22px;
+	font-weight:bold;
+	padding:1px 3px 0px 0px;
+	height:28px;
+}
+#nbaGIQtrScrs{
+	width:395px;
+	height:61px;
+	float:left;
+}
+.nbaGIQtrPts{
+	height:25px;
+	-height:20px;
+}
+.nbaGIQtrPts1OT, .nbaGIQtrPts2OT{
+	background:#f0f0f0;
+	height:25px;
+	-height:20px;
+}
+.nbaGIQtrStatus{
+	width:26px;
+	height:9px;
+	.text-align:left !important;
+}
+.nbaGIRegul{
+	float:left;
+	width:107px;
+}
+.nbaGIRegul.nbaGIRegul2{
+	width:auto; /* since games are halves, use a narrower table */
+}
+.nbaGIRegul.nbaGIRegul2 td{
+	width:26px;
+}
+.nbaGIOT tr td{
+	border:1px solid #fff !important;
+	width:25px;
+}
+.nbaGIQtrPtsLast{
+	background:#ccc; !important;
+	font-weight:bold;
+	border:1px solid #ccc !important;
+	-height:20px;
+}
+.nbaGIOT{
+	float:left;
+	max-width:274px;
+	background:#ccc;
+}
+#nbaGIGameTicket{
+	margin-top:26px;
+	text-align:center;
+}
+#nbaGIBlwScrs{
+	margin:0px auto;
+	margin-top:28px;
+}
+
+/*----Right Col-----*/
+#nbaGIRightCol{
+	width:300px;
+	/*height:345px;*/
+	float:left;
+	margin:10px 0 0 10px;
+}
+#nbaGI300ad{
+	float:left;
+	width:300px;
+	height:250px;
+	margin-bottom:9px;
+}
+#nbaGI30075ad{
+	width:300px;
+	float:left;
+	padding-right:9px;
+	margin-bottom:10px;
+}
+/*----Video Tab------*/
+#nbaVideoPlayer{
+	width:918px;
+	clear:both;
+	margin:0px auto;
+}
+#nbaVideoPlayer a{
+	cursor:hand;
+}
+#Rnd1pick1{
+	width:916px;
+	height:412px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	margin:0px auto;
+	margin-bottom:10px;
+}
+#nbaGIVideo{
+	width:576px;
+	height:354px;
+	float:left;
+	margin:20px 0px 0px 20px;
+	-margin:20px 0px 0px 10px;
+}
+#nbaGIPlayList{
+	width:292px;
+	float:left;
+	height:400px;
+	margin:10px 0px 0px 20px;
+	-margin:10px 0px 0px 10px;
+}
+#nbaGIPLItems{
+	width:136px;
+	height:85px;
+	float:left;
+	padding:0 3px 40px 3px;
+	font-size:12px;
+}
+#nbaGIVidFoot{
+	width:918px;
+	height:11px;
+	position:relative;
+	right:1px;
+	float:left;
+	-width:917px;
+}
+#nbaGIPLHide{
+	width:79px;
+	height:14px;
+	float:right;
+	position:relative;
+	top:90px;
+	right:5px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIVidClose.gif) no-repeat;
+}
+#nbaGIPLHide p{
+	font-size:11px;
+	font-weight:normal !important;
+	color:#666666;
+}
+/*----Game Info Section-----*/
+.nbaGIOuterShell{
+	border:1px solid #ccc;
+	float:left;
+	width:918px;
+	-width:900px;
+	margin-bottom:10px;
+}
+/* MIDDLE ADS */
+#nbaMidAds {
+	float:left;
+	left:10px;
+	margin:15px 0;
+	position:relative;
+	width:938px;
+}
+	#nbaMid181Ad {
+		float:left;
+		height:90px;
+		margin-right:10px;
+		width:181px;
+	}
+	#nbaMid728Ad {
+		float:left;
+		height:90px;
+		width:728px;
+	}	
+#nbaGISect{
+	width:919px;
+	float:left;
+	margin-left:10px;
+	-margin-left:5px;
+	font-size:11px;
+}
+#nbaGITabs{
+	width:919px;
+	height:33px;
+	float:left;
+	margin-top:10px;
+}
+#nbaGITabs ul{
+	color:#6b6b6b;
+	height:33px;
+	line-height:16px;
+	width:100%;
+	position:relative;
+	top:1px;
+}
+#nbaGITabs ul li{
+	display:inline;
+	float:left
+	font-weight:bold;
+	text-transform:uppercase;
+	height:33px;
+	width:148px;
+	margin:0px;
+	padding:0px;
+	position:relative;
+}
+#nbaGITabs li a {
+	position:relative;
+	width:148px;
+	height:33px;
+	color:#6b6b6b;
+	padding:8px 0px 8px 0px;
+	-padding:0px 0px 0px 0px;
+	text-decoration:none;
+	background: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGINonActiveTab.gif) no-repeat;
+	_margin:0px;
+	float:left;
+	text-indent:5px;
+	outline:none;
+}
+.nbaGITabnActive{
+	position:relative;
+	width:148px;
+	height:33px;
+	color:#6b6b6b;
+	padding:8px 0px 8px 0px !important;
+	-padding:0px 0px 0px 0px !important;
+	text-decoration:none;
+	background: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGINonActiveTab.gif) no-repeat;
+	_margin:0px;
+	float:left;
+	text-indent:5px;
+	outline:none;
+}
+#nbaGITabs li a:hover {
+	background: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIActiveTab.gif) no-repeat;
+}
+
+
+#nbaGITabs ul li a.active-tab{
+	color:#6b6b6b;
+	background: url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIActiveTab.gif) no-repeat;
+	width:148px;
+	height:33px;
+	float:left;
+}
+#nbaGameInfoContainer .panel {
+	clear:both;
+	display:none;
+	}		
+#nbaGameInfoContainer .panel.active-tab-body {
+	display:block;
+	background-color: #FFFFFF;
+	margin: 6px 0;
+	}
+#nbaGIPreview{
+	width:587px;
+	.width:590px;
+	float:left;
+	padding:30px 5px 5px 5px;
+	-padding:30px 2px 5px 2px;
+}
+#nbaGIPreview h3{
+	font-size:20px;
+	font-weight:bold;
+	color:#333333;
+}
+#nbaGIPreview h4{
+	color:#666666;
+	font-size:11px;
+}
+#nbaGIRecap2, #nbaGINotebook{
+	width:587px;
+	.width:587px;
+	float:left;
+	padding:30px 5px 5px 5px;
+	-padding:30px 2px 5px 2px;
+}
+#nbaGIRecap2 h3, #nbaGINotebook h3{
+	font-size:20px;
+	font-weight:bold;
+	color:#333333;
+}
+#nbaGIRecap2 h4, #nbaGINotebook h4{
+	color:#666666;
+	font-size:11px;
+}
+#nbaGIRecap2 p, #nbaGINotebook p{
+	padding:5px 0px 5px 0px;
+	font-size:12px;
+	color:#000;
+}
+.nbaGIPreLks{
+	width:105px;
+	position:absolute;
+}
+#nbaGIStoryPreLks{
+	width:170px;
+	position:absolute;
+	font-size:11px !important;
+	.position:relative;
+}
+.nbaGIPreLks a, #nbaGIStoryPreLks a{
+	color:#666666;
+	font-size:11px;
+	padding:0px 5px 0px 5px;
+}
+#nbaGIPhotos{
+	width:280px;
+	height:285px;
+	float:right;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPhotoHdr.gif) no-repeat;
+	margin-left:10px;
+	-margin-left:0px;
+	position:relative;
+	left:5px;
+	.width:279px;
+	display:none;
+}
+#nbaGIPhotos h4, #nbaGI300Hdr h4{
+	text-transform:uppercase;
+	color:#003366;
+	font-size:16px;
+	position:relative;
+	top:8px;
+	left:10px;
+}
+#nbaGIPhotoBdy{
+	width:277px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	margin-top:25px;
+	float:left;
+}
+#nbaGIPhotoBdy img{
+	width:255px;
+	margin:20px 0px 10px 10px;
+}
+#nbaGIPhotoBdy a{
+	position:relative;
+	right:10px;
+	font-size:11px;
+	color:#3399cc !important;
+	float:right;
+}
+.nbaGIPhotoBlurb{
+	font-size:11px !important;
+	color:#3399cc !important;
+	text-align:center;
+	width:250px;
+	margin:0px auto;
+}
+.nbaGIPhotoBtm{
+	float:left;
+}
+#nbaGIPreview p{
+	padding:5px 0px 5px 0px;
+	font-size:12px;
+	color:#000;
+}
+#nbaGIGmeLiveRCol{
+	width:300px;
+	float:left;
+	margin:5px 0px 0px 10px;
+	.margin-left:5px;
+}
+#nbaGameStatsAJAX {
+	float:right;
+}
+#nbaGI300Hdr{
+	float:left;
+	width:300px;
+	height:34px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIStatsHdr.gif) no-repeat;
+}
+#nbaGIGStatsHdr{
+	float:left;
+	width:300px;
+	height:34px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIGameStatsHdr.gif) no-repeat;
+}
+#nbaGIPlyrStatsHdr{
+	float:left;
+	width:300px;
+	height:34px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPlyrStatsHdr.gif) no-repeat;
+}
+#nbaGISSeriesHdr{
+	float:left;
+	width:300px;
+	height:34px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGISeriesMatchupHdr.gif) no-repeat;
+}
+#nbaGIStoreHdr{
+	float:left;
+	width:300px;
+	height:34px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIStoreHdr.gif) no-repeat;
+}
+#nbaGI300Bdy{
+	width:298px;
+	float:left;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+.nbaGIPreTime{
+	font-size:16px !important;
+	position:relative !important;
+	top:20px;
+	left:2px;
+}
+.IEContainerLinline {
+	display: inline;
+	margin-bottom: 10px;
+	float: left;
+	margin-right: 10px;
+}
+.IEContainerRinline {
+	display: inline;
+	margin-bottom: 10px; 
+	float: right; 
+	margin-left: 10px;
+}
+.IEContainerRinline .IErow DIV TABLE, .IEContainerLinline .IErow DIV TABLE {
+	max-width:220px;
+	width:220px;
+}
+.IEContainerCinline, .IEContainerCinline TABLE {
+	width:587px;
+}
+
+/*TABLEMAKER IE styles*/
+.cnnTMbox {
+}
+
+table.cnnTMbox td {
+	font-family: arial, sans-serif;
+}
+
+table.cnnTM td {
+	font-family: arial, sans-serif;
+	color: #000;
+	font-size: 12px;
+	line-height: 14px;
+	padding: 4px;
+	background-color: #ddd;
+	text-align: center;
+}
+
+.cnnIEXL table.cnnTM td {
+	font-size: 11px;
+	line-height: 15px;
+}
+
+td.cnnTMcontent {
+	background-color: #BBB;
+}
+
+td.cnnIEBoxTitle {
+	border-bottom: none;
+	padding-bottom:6px;
+	font-size:12px;
+	font-weight:bold;
+	color:#000;
+}
+
+td.cnnIEBoxSubTitle {
+	border-bottom: none;
+	font-size:10px;
+	color:#000;
+}
+
+table.cnnTM tr.cnnIEHdrRowBG td {
+	background-image:url(http://i.cdn.turner.com/nba/nba/.element/img/1.0/news/nbaBlueGradFill.jpg);
+	background-position:left top;
+	color:#000000;
+	font-weight: bold;
+	height: 24px;
+}
+
+table.cnnTM tr.cnnIERowAltBG td {
+	background-color: #fff;
+} 
+.cnnIEColHdrC, .cnnIEColTxtC {
+	text-align: center;
+} 
+.cnnIEColHdrL, .cnnIEColTxtL {
+	text-align: left;
+} 
+.cnnIEColHdrR, .cnnIEColTxtR {
+	text-align: right;
+}
+
+td.cnnTMfooter {
+	font-family: arial, sans-serif;
+	background-color: #fff;
+	font-size: 10px;
+	padding: 4px;
+}
+
+#nbaTopImage
+	{
+	float:right;
+	}
+#nbaTopImage div.nbaImgCaptionText
+	{
+	padding-bottom:0px;
+	margin-bottom:0px;
+	color:#000;
+	font-weight:bold;
+	text-align:right;
+	}
+.nbaImgCaptionText, .nbaImgCreditText{
+	width:300px;
+}
+
+#nbaTopImage div.nbaImgCreditText
+	{
+	padding-bottom:0px;
+	margin-bottom:0px;
+	color:#000;
+	text-align:right;
+	}	
+.nbaImgCaptionText
+	{
+	padding-bottom:0px;
+	margin-bottom:0px;
+	color:#000;
+	font-weight:bold;
+	text-align:left;
+	}
+.nbaImgCreditText
+	{
+	padding-bottom:0px;
+	margin-bottom:0px;
+	color:#000;
+	text-align:left;
+	}
+td.nbaStoryBlockTitle
+	{
+	 border-bottom:1px solid #ccc;
+	 padding-bottom:6px;
+	 font-size:12px;
+	 font-weight:bold;
+	 color:#000;
+	 text-transform: uppercase;
+	}
+	
+a.nbaStoryBlockHeadline
+	{
+	/*text-decoration:underline!important;*/
+	font-size:14px;
+	font-weight:bold;
+	}
+	
+td.nbaHeadlinTd
+	{
+	padding-top:8px;
+	padding-left:6px;
+	}
+	
+td.nbaTextBlockImgTd
+	{
+	padding-left:6px;
+	border-bottom:1px solid #ccc!important;
+	padding-bottom: 8px;
+	}
+td.nbaTextBlockImgTd img
+	{
+	border:1px solid #666;
+	margin-bottom:12px;
+	}	
+	
+td.nbaTextSnipTd
+	{
+	border-bottom:1px solid #ccc;
+	padding-left:8px;
+	padding-right:8px;
+	padding-bottom: 8px;
+	}
+	
+td.nbaTextSnipTd a
+	{
+	/*text-decoration:underline!important;*/
+	}
+.IErow {
+	margin:8px 0px;
+}
+/*---Game Stats---*/
+	div.nbaGameInfoQuickStats {
+		position:relative;
+		float:left;
+		width:70%;
+	}
+		div.nbaGameInfoQuickStats table {
+			width:100%;
+			border:1px solid #D2D2D2;
+		}
+#nbaGIStatBdy table{
+	margin-left:10px;
+}
+		tr.nbaGIQSLegend, tr.nbaGIQSLegend td {
+			padding:5px;
+			font-size:12px;
+			font-weight:bold;
+			color:#636363;
+			height:15px;
+			border-bottom:1px dotted #ccc;
+			width:300px;
+		}
+			.nbaGItmLegendBar {
+				float: left;
+				width:40px !important;
+				height:15px !important;
+				margin-right: 5px !important;
+			}
+			.tc {
+				float: left;
+				margin-right: 5px;
+				text-transform:uppercase;
+				color:#636363;
+				font-weight:bold;
+			}		
+			div.nbaGIQSLegendBox {
+				float: left;
+				width:40px !important;
+				height:15px !important;
+				margin-right: 5px !important;			
+			}
+				.nbaCeltics {
+					background:#009933 !important;
+				}
+				.nbaKnicks  {
+					background:#ff6633 !important;
+				}
+				.nbaBlazers {
+					background:#000000 !important;
+				}
+				.nbaCavaliers  {
+					background:#C40012 !important;
+				}
+				.nbaHawks {
+					background:#C50000 !important;
+				}
+				.nbaKings  {
+					background:#724c9f !important;
+				}
+				.nbaMavericks {
+					background:#0E57A7 !important;
+				}
+				.nbaPistons  {
+					background:#F0174A !important;
+				}
+				.nbaTimberwolves  {
+					background:#005083 !important;
+				}
+				.nbaBobcats {
+					background:#F26631 !important;
+				}
+				.nbaHeat  {
+					background:#B22432 !important;
+				}
+				.nbaNets {
+					background:#464646 !important;
+				}
+				.nbaRaptors  {
+					background:#DE2129 !important;
+				}
+				.nbaSpurs {
+					background:#BABDC6 !important;
+				}
+				.nbaWarriors  {
+					background:#FEC547 !important;
+				}
+				.nbaBucks {
+					background:#BD303A !important;
+				}
+				.nbaClippers  {
+					background:#01326C !important;
+				}
+				.nbaHornets {
+					background:#00868C !important;
+				}
+				.nbaCHA_Hornets {
+					background:#008CA8 !important;
+				}
+				.nbaLakers  {
+					background:#AD4A84 !important;
+				}
+				.nbaNuggets {
+					background:#FCB216 !important;
+				}
+				.nbaRockets  {
+					background:#E3072E !important;
+				}
+				.nbaSuns {
+					background:#D45A0A !important;
+				}
+				.nbaWizards  {
+					background:#004273 !important;
+				}
+				.nbaBulls {
+					background:#A40808 !important;
+				}
+				.nbaGrizzlies  {
+					background:#444868 !important;
+				}
+				.nbaJazz {
+					background:#091965 !important;
+				}
+				.nbaMagic  {
+					background:#0099F0 !important;
+				}
+				.nbaNBA_D-League_Select{
+					background:#0099F0 !important;
+				}
+				.nbaPacers {
+					background:#FDBB33 !important;
+				}
+				.nbaSixers  {
+					background:#ED174C !important;
+				}
+				.nbaThunder  {
+					background:#007DC3 !important;
+				}
+				.nbaPelicans{
+					background:#002B5C !important;
+				}
+				.nbaMaccabi{
+					background:#1d4599 !important;
+				}
+				.nbaOlympiacos{
+					background:#d0001c !important;
+				}
+				.nbaPartizan{
+					background:#000000 !important;
+				}
+				.nbaRealMadrid{
+					background:#f9c102 !important;
+				}
+				.nbaRKE{
+					background:#00559A !important;
+				}
+				.nbaSPH{
+					background:#E20074 !important;
+				}
+				.nbaEST{
+					background:#00559A !important;
+				}
+				.nbaWST{
+					background:#EC003D !important;
+				}
+				.nbaArmani{
+					background:#cc0000 !important;
+				}
+				.nbaRegal{
+					background:#003399 !important;
+				}	
+				.nbaAlbaBerlin{
+					background:#000 !important;
+				}
+				.nbaEA7EmporioArmaniMilano{
+					background:#000 !important;
+				}
+
+				.nbaMontepaschiSiena{
+					background:#000 !important;
+				}
+				.nbaFCBarcelonaRegal{
+					background:#000 !important;
+				} 
+				.nbaMaccabiHaifa, .nbaBilbao, .nbaCSKA, .nbaFenerbahceUlker, .nbaGItmLegendBar .nbaMaccabiElectra, .nbaGItmLegendBar .nbaFlamengo{
+					background:#000 !important;
+					float: left;
+					width:40px !important;
+					height:15px !important;
+					margin-right: 5px !important;
+				} 
+				.nbaSHQ {
+					background:#1a73a2 !important;
+				}
+				.nbaCHK {
+					background:#ed3f35 !important;
+				}
+				.nbaHIL {
+					background:#f2861b !important;
+				}
+				.nbaWEB {
+					background:#004e93 !important;
+				}
+				.nbaUSA {
+					background:#999999 !important;
+				}
+				.nbaWLD {
+					background:#000000 !important;
+				}
+
+
+		table.nbaGIQSBars, table.nbaGIQSBars table {
+			border:none !important;
+		}		
+				#nbaGItmStats {
+					position: relative; 
+					width: 265px; 
+					height: 130px;
+					margin:5px; 
+					padding: 0;
+					list-style: none;	
+					border-bottom:1px solid #D2D2D2;	
+					-margin:0px;
+					left:10px;
+				}				
+				#nbaGItmStats ul {
+					margin: 0; 
+					padding: 0; 
+					list-style: none;					
+				}				
+				#nbaGItmStatsfooter{
+					position: relative; 
+					width: 270px !important;
+					margin: 0; padding: 0;
+					font-weight:bold;
+					left:15px;
+					font-weight:bold;
+					color:#000;
+				}	
+				.nbaGIBtmStats{
+					margin:0px !important;
+					width:298px;
+					position:relative;
+					top:5px;
+					border-collapse:collapse;
+					padding-bottom:5px;
+				}
+				
+				.nbaGIBtmStats tr td{
+					height:21px;
+					text-align:right;
+					padding-right:30px;
+					color:#333333;
+				}
+/*---Player Stats---*/
+.nbaSeasonName {
+	background:#F8F8F8;
+	border-bottom:1px solid #CCC;
+	color:#616161;
+	font-weight:bold;
+	height:21px;
+	padding-top:8px;
+	text-indent:13px;
+}
+				.nbaGIPlyrStats{
+					width:281px;
+					margin:0px auto;
+					border-collapse:collapse;
+				}
+				.nbaGIPlyrStats tr td{
+					text-align:center;
+					height:21px;
+					font-size:11px;
+					color:#333333;
+				}
+				.nbaGIStatBtm{
+					float:left; 
+					margin-bottom:10px;
+				}
+				.nbaGIStatBord{
+					border-left:1px solid #ccc;
+					
+				}
+				.even{
+					background:#f8f8f8;
+				}
+				.evenHover{
+					background:#EAEAEA;
+				}
+				.oddHover{
+					background:#EAEAEA;
+				}
+				.nbaGIStatsCat{
+					width:99px;
+					float:left;
+				}
+				.nbaGIStatsCat table{
+					width:100px;
+					-width:95px;
+				}
+				.nbaGIHomeStatCat{
+					width:90px;
+					float:left;
+					border-left:1px solid #ccc;
+					border-right:1px solid #ccc;
+				}
+				.nbaGIHomeStatCat table{
+					width:90px;
+				}
+				.nbaGIAwayStatCat{
+					width:90px;
+					float:left;
+				}
+				.nbaGIAwayStatCat table{
+					width:85px;
+				}
+				.nbaGIILeaders{
+					width:38px;
+					float:left;
+				}
+				.nbaGIILeaders table{
+					width:38px;
+				}
+				.nbaGIILeadersHome{
+					width:116px;
+					float:left;
+					border-left:1px solid #ccc;
+					border-right:1px solid #ccc;
+				}
+				.nbaGIILeadersHome table{
+					width:116px;
+				}
+				.nbaGIILeadersAway{
+					width:116px;
+					float:left;
+				}
+				.nbaGIILeadersAway table{
+					margin:0px auto;
+					width:125px;
+				}
+/*---Season Series----*/
+				.nbaSeaSeriesDate {
+                        color:#333333;
+                        }
+            .nbaSeaSeriesWin {
+                        color:#fa191d;
+                        }
+            .nbaSeaSeriesLose {
+                        color:#999999;
+                        }
+            .nbaSeaSeriesText {
+                        color:#999999;
+                        }
+                #nbaGI300Bdy ul{
+                	
+          
+                }
+                .nbaGISS{
+                	float:left;
+                	width:157px;
+                	margin-left:5px;
+                	padding:10px 0px 5px 0px;
+                	}
+                	.nbaGISS li{
+                		padding-top:5px;
+                		position:relative;
+                		left:5px;
+                	}
+				.nbaGISSDLTickets{
+					padding:10px 0px 5px;
+				}
+					.nbaGISSDLTickets li{
+						line-height:31px;
+					}
+					.nbaGISSDLTickets li span.nbaSeaSeriesDate{
+						color:#333;
+						margin-left:10px;
+					}
+					.nbaGISSDLTickets li span.nbaSeaSeriesText{
+						color:#999;
+					}
+					.nbaGISSDLTickets li span.nbaSeaSeriesLose{
+						color:#999;
+					}
+					.nbaGISSDLTickets li span.nbaSeaSeriesWin{
+						color:#fa191d;
+					}
+					.nbaGISSDLTickets li:nth-child(even){
+						background-color:#f8f8f8;
+					}
+					.nbaGISSDLTickets li a{
+						background:transparent url('http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGITickets.gif') no-repeat 140px 6px;
+						display:block;
+					}
+					.nbaGISSDLTickets li a span.nbaSeaSeriesDate,
+					.nbaGISSDLTickets li a span.nbaSeaSeriesText{
+						color:#06c;
+					}
+				#nbaGISSTick{
+                	float:left;
+                	position:relative;
+                	top:20px;
+                	left:10px;
+                }
+                .boxSPDF{
+                	position:relative;
+                	left:10px;
+                	padding-bottom:10px;
+                	float:left;
+                }
+                .boxSPDF img{
+                	float:left;
+                }
+                .boxSPDF p{
+                	position:relative;
+                	float:left;
+                	top:4px;
+                	right:8px;
+                }
+                .boxSPDF a:hover p{
+                	text-decoration:underline !important;
+                }
+/*----Store Pod----*/
+#nbaStorePod {
+	position:relative;
+	width:300px;
+	height:100%;
+	float:left;
+	margin:10px 0;
+}	
+	#nbaStorePodHeader {
+		position:relative;
+		height:25px;
+		text-transform:uppercase;
+		background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/playoffs2009/nbaPlayoffTopTab.gif) no-repeat center top;
+	}
+		#nbaStorePodHeader h3{
+			color:#454545;
+			font-size:14px;
+			text-indent:5px;
+			padding:5px 0 0;
+		}
+	#nbaStorePodContent {
+		position:relative;
+		float:left;
+		background:#FFF;
+		padding:2px;
+	}
+	div.nbaStorePodContainer {
+		position:relative;
+		float:left;
+		width:48%;
+		background:#FFF;
+		text-align:center;
+		color:#0C2D50;
+		margin:0 1px;
+	}
+	div.nbaStorePodContainer a:hover{
+		text-decoration:underline;
+	}
+		div.nbaStorePodContainer img {
+			position:relative;
+			margin:5px auto;
+		}
+		div.nbaStorePodContainer p {
+			padding:5px 10px;
+		}
+		div.nbaStorePodBtn {
+			position:relative;
+			margin:5px auto;
+		}
+	#nbaStorePodContent div.nbaFillerSpace {
+		position:relative;
+		width:2px;
+		height:200px;
+		float:left;
+		background:#E9E9E9;
+		_display:none;
+	}		
+ 
+				#nbaGItmStatsfooter ul {
+					margin: 0; 
+					padding: 0; 
+					list-style: none;
+				}				
+				#nbaGItmStatsfooter li {
+					float:left;
+					top: 0; 
+					width: 90px; 
+					z-index: 2;
+					margin: 0; 
+					padding: 0; 
+					text-align: center; 
+					list-style: none;
+				}				
+				#nbaGItmStatsfooter #f1 {left: 0;}
+				#nbaGItmStatsfooter #f2 {left: 90px;}
+				#nbaGItmStatsfooter #f3 {left: 180px;}				
+				#nbaGItmStats li {
+					position: absolute; 
+					bottom: 0; 
+					width: 90px; 
+					z-index: 2;
+					margin: 0; 
+					padding: 0; 
+					text-align: center; 
+					list-style: none;
+				}
+				#nbaGItmStats li.qtr {
+					height: 130px;
+					padding-top: 2px;
+				}
+				#nbaGItmStats li.last { 
+					border-right: 0px 
+				}				  
+				#nbaGItmStats li.bar {
+					width: 22px; 
+					border-bottom: none; 
+					color: #000;
+				} /* width of the bar */				
+				#nbaGItmStats li.bar p {
+					margin:-15px -3px 0; 
+					padding: 0;
+					font-weight:normal;
+					color:#000000;
+				} /* text */				
+				* html body #nbaGItmStats li.bar p {
+					margin: -15px -15px 0; 
+					padding: 0;
+					color:#000000;
+					position:absolute;
+				}
+				#nbaGItmStats li.away {
+					left: 15px; 
+				}				
+				#nbaGItmStats li.home {
+					left: 48px; 
+				}				
+				#nbaGItmStats #q1 {left: 0;}
+				#nbaGItmStats #q2 {left: 90px;border-left:1px dotted #ccc;border-right:1px dotted #ccc;}
+				#nbaGItmStats #q3 {left: 180px;}
+		tr.nbaGIQSFooter, tr.nbaGIQSFooter td {
+			background:#D2D2D2;
+		}		
+	td.nbaGIQSData {float:left;}	
+		table.nbaGIQSDataTbl {
+			border:none !important;
+			color:#626262;
+		}
+			table.nbaGIQSDataTbl td{
+				padding:5px 2px;
+			}
+			tr.nbaGIQSHeader, tr.nbaGIQSHeader td {
+				color:#313131;
+				font-weight:bold;
+			}
+			table.nbaGIQSDataTbl .odd {
+				background:#DADADA;
+			}
+			table.nbaGIQSDataTbl  .even {
+				background:#FFF;
+				}
+/*----Box Score Tab----*/
+#nbaGIboxScores table{
+	margin:0px auto;
+	margin-bottom:20px;
+}
+.nbaGICeltics{
+	width:897px;
+	height:30px;
+	background:#009933;
+	margin:0px auto;
+}
+.nbaGIKnicks{
+	width:897px;
+	height:30px;
+	background:#f36f21;
+	margin:0px auto;
+}
+.nbaGIBlazers{
+	width:897px;
+	height:30px;
+	background:#000000;
+	margin:0px auto;
+}
+.nbaGICavaliers{
+	width:897px;
+	height:30px;
+	background:#C40012;
+	margin:0px auto;
+}
+.nbaGIHawks{
+	width:897px;
+	height:30px;
+	background:#C50000;
+	margin:0px auto;
+}
+.nbaGIKings{
+	width:897px;
+	height:30px;
+	background:#724c9f;
+	margin:0px auto;
+}
+.nbaGIMavericks{
+	width:897px;
+	height:30px;
+	background:#0E57A7;
+	margin:0px auto;
+}
+.nbaGIPistons{
+	width:897px;
+	height:30px;
+	background:#F0174A;
+	margin:0px auto;
+}
+.nbaGITimberwolves{
+	width:897px;
+	height:30px;
+	background:#005083;
+	margin:0px auto;
+}
+.nbaGIBobcats{
+	width:897px;
+	height:30px;
+	background:#F26631;
+	margin:0px auto;
+}
+.nbaGIHeat{
+	width:897px;
+	height:30px;
+	background:#B22432;
+	margin:0px auto;
+}
+.nbaGINets{
+	width:897px;
+	height:30px;
+	background:#464646;
+	margin:0px auto;
+}
+.nbaGIRaptors{
+	width:897px;
+	height:30px;
+	background:#DE2129;
+	margin:0px auto;
+}
+.nbaGISpurs{
+	width:897px;
+	height:30px;
+	background:#BABDC6;
+	margin:0px auto;
+}
+.nbaGIWarriors{
+	width:897px;
+	height:30px;
+	background:#FEC547;
+	margin:0px auto;
+}
+.nbaGIBucks{
+	width:897px;
+	height:30px;
+	background:#BD303A;
+	margin:0px auto;
+}
+.nbaGIClippers{
+	width:897px;
+	height:30px;
+	background:#01326C;
+	margin:0px auto;
+}
+.nbaGINBA D-League Select{
+	width:897px;
+	height:30px;
+	background:#00255c;
+	margin:0px auto;
+}
+.nbaGIHornets{
+	width:897px;
+	height:30px;
+	background:#00868C;
+	margin:0px auto;
+}
+.nbaGICHA_Hornets{
+	width:897px;
+	height:30px;
+	background:#008CA8;
+	margin:0px auto;
+}
+.nbaGILakers{
+	width:897px;
+	height:30px;
+	background:#AD4A84;
+	margin:0px auto;
+}
+.nbaGINuggets{
+	width:897px;
+	height:30px;
+	background:#FCB216;
+	margin:0px auto;
+}
+.nbaGIRockets{
+	width:897px;
+	height:30px;
+	background:#E3072E;
+	margin:0px auto;
+}
+.nbaGISuns{
+	width:897px;
+	height:30px;
+	background:#D45A0A;
+	margin:0px auto;
+}
+.nbaGIWizards{
+	width:897px;
+	height:30px;
+	background:#004273;
+	margin:0px auto;
+}
+.nbaGIBulls{
+	width:897px;
+	height:30px;
+	background:#A40808;
+	margin:0px auto;
+}
+.nbaGIGrizzlies{
+	width:897px;
+	height:30px;
+	background:#444868;
+	margin:0px auto;
+}
+.nbaGIJazz{
+	width:897px;
+	height:30px;
+	background:#091965;
+	margin:0px auto;
+}
+.nbaGIMagic{
+	width:897px;
+	height:30px;
+	background:#0099F0;
+	margin:0px auto;
+}
+.nbaGINBA_D-League_Select{
+	width:897px;
+	height:30px;
+	background:#0099F0;
+	margin:0px auto;
+}
+.nbaGIPacers{
+	width:897px;
+	height:30px;
+	background:#FDBB33;
+	margin:0px auto;
+}
+.nbaGISixers{
+	width:897px;
+	height:30px;
+	background:#ED174C;
+	margin:0px auto;
+}
+.nbaGIThunder{
+	width:897px;
+	height:30px;
+	background:#007DC3;
+	margin:0px auto;
+}
+.nbaGIPelicans{
+	width:897px;
+	height:30px;
+	background:#002B5C;
+	margin:0px auto;
+}
+.nbaGIMaccabi{
+	width:897px;
+	height:30px;
+	background:#1d4599;
+	margin:0px auto;
+}
+.nbaGIOlympiacos{
+	width:897px;
+	height:30px;
+	background:#d0001c;
+	margin:0px auto;
+}
+.nbaGIPartizan{
+	width:897px;
+	height:30px;
+	background:#000000;
+	margin:0px auto;
+}
+.nbaGIRealMadrid{
+	width:897px;
+	height:30px;
+	background:#f9c102;
+	margin:0px auto;
+}
+.nbaGIRKE{
+	width:897px;
+	height:30px;
+	background:#00559A;
+	margin:0px auto;
+}
+.nbaGISPH{
+	width:897px;
+	height:30px;
+	background:#E20074;
+	margin:0px auto;
+}
+.nbaGIWST{
+	width:897px;
+	height:30px;
+	background:#EC003D;
+	margin:0px auto;
+}
+.nbaGIEST{
+	width:897px;
+	height:30px;
+	background:#00559A;
+	margin:0px auto;
+}
+.nbaGIArmani{
+	width:897px;
+	height:30px;
+	background:#cc0000;
+	margin:0px auto;
+}	
+.nbaGIRegal{
+	width:897px;
+	height:30px;
+	background:#003399;
+	margin:0px auto;
+}
+
+.nbaGIAlbaBerlin{
+	width:897px;
+	height:30px;
+	background:#000;
+	margin:0px auto;
+}
+
+.nbaGIEA7EmporioArmaniMilano{
+	width:897px;
+	height:30px;
+	background:#000;
+	margin:0px auto;
+}
+
+.nbaGIMontepaschiSiena{
+	width:897px;
+	height:30px;
+	background:#000;
+	margin:0px auto;
+}
+.nbaGIFCBarcelonaRegal{
+	width:897px;
+	height:30px;
+	background:#000;
+	margin:0px auto;
+}
+.nbaGIMaccabiHaifa, .nbaGICSKA, .nbaGIBilbao, .nbaGIFenerbahceUlker, .nbaGIMaccabiElectra, .nbaMaccabiElectra, .nbaGIFlamengo{
+	width:897px;
+	height:30px;
+	background:#000;
+	margin:0px auto;
+}
+
+.nbaGISHQ{
+	width:897px;
+	height:30px;
+	background:#1a73a2;
+	margin:0px auto;
+}
+
+.nbaGICHK{
+	width:897px;
+	height:30px;
+	background:#ed3f35;
+	margin:0px auto;
+}
+
+.nbaGIHIL{
+	width:897px;
+	height:30px;
+	background:#f2861b;
+	margin:0px auto;
+}
+
+.nbaGIWEB{
+	width:897px;
+	height:30px;
+	background:#004e93;
+	margin:0px auto;
+}
+
+.nbaGIUSA{
+	width:897px;
+	height:30px;
+	background:#999999;
+	margin:0px auto;
+}
+
+.nbaGIWLD{
+	width:897px;
+	height:30px;
+	background:#000000;
+	margin:0px auto;
+}
+
+table thead.nbaGICeltics th, 
+table thead.nbaGIKnicks th, 
+table thead.nbaGIThunder th, 
+table thead.nbaGISixers th, 
+table thead.nbaGIPacers th, 
+table thead.nbaGIMagic th, 
+table thead.nbaGIJazz th, 
+table thead.nbaGIGrizzlies th, 
+table thead.nbaGIBulls th, 
+table thead.nbaGIWizards th, 
+table thead.nbaGISuns th,
+table thead.nbaGIRockets th, 
+table thead.nbaGINuggets th, 
+table thead.nbaGIHornets th, 
+table thead.nbaGICHA_Hornets th, 
+table thead.nbaGIClippers th, 
+table thead.nbaGIBucks th, 
+table thead.nbaGIWarriors th, 
+table thead.nbaGISpurs th, 
+table thead.nbaGIRaptors th, 
+table thead.nbaGINets th, 
+table thead.nbaGIHeat th, 
+table thead.nbaGIBobcats th, 
+table thead.nbaGITimberwolves th, 
+table thead.nbaGIMavericks th, 
+table thead.nbaGIHawks th, 
+table thead.nbaGICavaliers th, 
+table thead.nbaGIBlazers th, 
+table thead.nbaGILakers th, 
+table thead.nbaGIKings th, 
+table thead.nbaGIPistons th,
+table thead.nbaGIPelicans th,
+table thead.nbaGIMaccabi th,
+table thead.nbaGIOlympiacos th,
+table thead.nbaGIPartizan th,
+table thead.nbaGIRealMadrid th,
+table thead.nbaGIRKE th,
+table thead.nbaGISPH th,
+table thead.nbaGIWST th,
+table thead.nbaGIEST th,
+table thead.nbaGISHQ th,
+table thead.nbaGICHK th,
+table thead.nbaGIHIL th,
+table thead.nbaGIWEB th,
+table thead.nbaGIUSA th,
+table thead.nbaGIWLD th,
+table thead.nbaGIArmani th,
+table thead.nbaGIEA7EmporioArmaniMilano th,
+table thead.nbaGIMontepaschiSiena th,
+table thead.nbaGIFCBarcelonaRegal th,
+table thead.nbaGIMaccabiHaifa th,
+table thead.nbaGIMaccabiElectra th,
+table thead.nbaGIFlamengo th,
+table thead.nbaGIAlbaBerlin th,
+table thead.nbaGIRegal th,
+table thead.nbaGINBA_D-League_Select th,
+table thead.nbaGICSKA th,
+table thead.nbaGIBilbao th,
+table thead.nbaGIFenerbahceUlker th{
+	text-transform:uppercase;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	position:relative;
+	text-align:left;
+	width:897px;
+	text-indent:5px;
+	vertical-align:middle;
+}
+.nbaGIBoxCat{
+	width:897px;
+	height:22px;
+	text-align:center;
+	text-transform:uppercase;
+	color:#666666;
+	background:#ccc;
+	font-weight:bold;
+	padding-right:30px;
+}
+.nbaGIBoxCat span{
+	padding-right:140px;
+}
+.nbaSubheading {
+   color:#104691;
+   font-size:16px;
+   font-weight:bold;
+   line-height:30px;
+}
+
+
+/*----Team Stats Table----*/
+#nbaGITeamStats{
+	width:897px;
+	margin:0px auto;
+}
+#nbaGITeamStats tr td{
+	text-align:center;
+	border-left:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	color:#666666;
+}
+.nbaGITeamHdrStats{
+	width:56px;
+	height:18px;
+	text-transform:uppercase;
+	text-align:center;
+	font-family:arial;
+	font-size:12px;
+	border-left:1px solid #ccc;
+}
+.nbaGITeamHdrStatsNoBord{
+	border-left:none !important;
+}
+#nbaGIBoxNme{
+	width:120px;
+	height:19px;
+	text-align:left !important;
+	padding-left:10px;
+	border-left:none !important;
+}
+.nbaGIdnp{
+	text-align:left !important;
+	padding-left:20px;
+	text-transform:uppercase;
+}
+.nbaGIScrTot{
+	font-weight:bold;
+}
+.nbaGIPosition{
+	text-transform:uppercase;
+}
+.nbaGIBtmTbl td{
+	border:none !important;
+}
+/*----Player States (Below Tables)------*/
+#nbaGIPlyrStates{
+	width:443px;
+	height:20px;
+	border:1px solid #ccc;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPlayerStates.gif) repeat-x;	
+}
+#nbaGIPlyrStates p{
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:12px;
+	position:relative;
+	left:10px;
+	top:5px;
+	color:#666666;
+}
+#nbaGIPlyrStatus{
+	width:443px;	
+}
+#nbaGIPlyrStatus li{
+	width:434px;
+	border-bottom:1px solid #ccc;
+	padding:5px;
+	position:relative;
+	top:5px;
+}
+#nbaGIStatus{
+	width:443px;
+	float:left;
+	margin:10px 0px 10px 10px;
+	-margin:5px 0px 5px 5px;
+}
+/*----Play by Play----*/
+#nbaGIPBP{
+	width:897px;
+	padding:5px;
+	margin:0px auto;
+}
+#nbaGIQutrs{
+	height:18px;
+	float:right;
+}
+#nbaGIQutrs img{
+	float:left;
+	padding-left:3px;
+}
+#nbaGIPBP table{
+	width:897px;
+	margin-top:20px	
+}
+#nbaGIPBP table tr td{
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	color:#000000;
+}
+.nbaGIPbPTmTle{
+	border:none !important;
+	font-size:14px;
+	font-weight:bold;
+	text-transform:uppercase;
+}	
+.nbaGIPbPTblHdr{
+	font-size:12px;
+	font-weight:bold;
+	text-transform:uppercase;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPlayerStates.gif) repeat-x;
+	text-align:center;
+	height:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+#nbaGIPbPJBall{
+	text-align:center;
+	font-weight:bold;
+	text-transform:uppercase;
+	height:28px;
+	border-left:none !important;
+}
+.nbaGIPBPTeams{
+	height:30px;
+}
+.nbaGIPbPLft{
+	text-align:right;
+	padding-right:5px;
+	height:20px;
+	border-left:none !important;
+}
+#nbaGIPBP table tr td.nbaGIPbPLftScore{
+	text-align:right;
+	padding-right:5px;
+	height:20px;
+	font-weight:bold;
+	border-left:none !important;
+}
+.nbaGIPbPMid{
+	padding-left:5px;
+}
+#nbaGIPBP table tr td.nbaGIPbPMidScore{
+	padding-left:5px;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	color:#CC0000;
+	font-weight:bold;
+}
+.nbaGIPbPRgt{
+	text-align:left;
+	padding-left:5px;
+}
+#nbaGIPBP table tr td.nbaGIPbPRgtScore{
+	text-align:left;
+	padding-left:5px;
+	font-weight:bold;
+}
+/*----TV & Radio---*/
+#nbaGITvInfo{
+	width:587px;
+}
+#nbaGITvInfo tr{
+	border:1px solid #ccc;
+	text-transform:uppercase;
+	text-align:center;
+}
+#nbaGITvHdrs{
+	height:22px;
+	background:#f1f1f1;
+	border-bottom:1px solid #ccc !important;
+	text-indent:5px;
+	color:#999999;
+	font-size:11px;
+}
+.nbaGITvChan{
+	border:none !important;
+	text-align:center;
+}
+.nbaGIUsTv{
+	height:203px;
+	background:#fff !important;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+.nbaGICA{
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	height:80px;
+}
+#nbaGISmlCtryFirst{
+	height:39px;
+	border-right:1px solid #ccc;
+}
+#nbaGISmlCtry{
+	height:40px;
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+#nbaGISmlCtryLast{
+	height:40px;
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+#nbaGITvFirst{
+	text-align:center;
+	text-transform:uppercase !important;
+	height:40px;
+	border-top:1px solid #ccc;
+}
+#nbaGITvFirst img{
+	width: auto;
+}
+
+
+#nbaGITvLast{
+	text-align:center;
+	text-transform:capitalize !important;
+	height:40px;
+	border-bottom:1px solid #ccc;
+}
+#nbaGIPbPOvHdr{
+	width:300px;
+	height:38px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPBPTOverview.gif) no-repeat;
+}
+#nbaGIPbPInd{
+	width:300px;
+	height:38px;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPBPIndivStat.gif) no-repeat;
+	clear:both;
+}
+#nbaGITvImg{
+	text-align:center;
+}
+#nbaGICountries{
+	text-align:center;
+	text-transform:capitalize !important;
+	height:40px;
+	border-bottom:1px solid #ccc;
+}
+#nbaGIWatch{
+	text-transform:capitalize !important;
+	height:40px;
+}
+.nbaGIWatchW{
+	text-transform:capitalize !important;
+	height:40px;
+}
+#nbaGITvTimeFirst{
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+}
+#nbaGITvTime{
+	border-left:1px solid #ccc;
+}
+#nbaGITvTimeLast{
+	border-left:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+#nbaGIRdo{
+	width:587px;
+	float:left;
+	padding-top:5px;
+	padding-left:5px;
+}
+.nbaGITVTblHdr{
+	font-size:12px;
+	font-weight:bold;
+	text-transform:uppercase;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nbaGIPlayerStates.gif) repeat-x;
+	text-align:left;
+	color:#666666;
+	border:1px solid #ccc;
+	text-indent:10px;
+	height:20px;
+}
+.nbaGITelevised{
+	text-align:none !important;
+	text-transform:none !important;
+	border-bottom:1px solid #ccc;
+	padding:10px 0px 10px 0px;
+}
+.nbaGINoBord{
+	border:none !important;
+}
+.nbaGIBTT{
+	position:relative;
+	font-size:10px;
+	left:330px;
+	text-transform:capitalize;
+}
+#cvp_standaloneplayer{
+	float:left;
+	margin:10px 0px 0px 10px;
+}
+/*----Series Stats----*/
+#nbaGIsStats {
+	margin:0 0 10px 10px;
+	float:left;
+	}
+#nbaGIsStats tr td{
+	text-align:center;
+	border-left:1px solid #ccc;
+	color:#666666;
+	padding:2px 0;
+	font-weight:bold;
+}
+table thead.nbaGIss th{
+	text-transform:uppercase;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	height:30px;
+	position:relative;
+	text-align:center;
+	width:440px;
+	text-indent:5px;
+}
+#nbaGIssNme{
+	width:120px;
+	height:19px;
+	padding-left:10px;
+	border-left:none !important;
+}
+.nbaGIssHdr{
+	text-transform:uppercase;
+	font-size:14px;
+}
+.nbaGIssHdr td{
+	padding:5px 0;
+	border-bottom:1px solid #ccc;
+}
+.nbaGIssGry {
+	background-color:#efefef;
+	}
+.nbaGIssGry td{
+	height:7px !important;
+	border-bottom:1px solid #ccc;
+	}
+.nbaGIviewGry td{
+	text-align:right !important;
+	background-color:#efefef;
+	padding-right:10px;
+	}
+.nbaGIssTblSpace{
+	margin:0 0 0 5px;
+	float:left;
+	}
+.nbaGIgallery {
+	margin:0 0 10px 0;
+	}
+/*-- Photo Gallery --*/
+.nbaBotPod .nbaHPodContent {
+	height:285px;
+}
+.nbaPhotoGall {
+	float:left;
+	height:270px;
+	margin:10px 4px;
+	position:relative;
+	width:288px;
+}
+.nbaPhotoGall .previous_button_disabled {
+	background:transparent url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/homepage/photo.lft.arrow.dis.gif) no-repeat scroll center center;
+	float:left;
+	height:215px;
+	width:12px;
+	z-index:100;
+}
+.nbaPhotoGall .container {
+	float:left;
+	height:260px;
+	overflow:hidden;
+	position:relative;
+	width:264px;
+}
+.nbaHPodContent {
+	border-left:1px solid #CCCBCB;
+	border-right:1px solid #CCCBCB;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	width:298px;
+}
+.nbaBotPod {
+	height:320px;
+}
+
+.nbaHPPods {
+	background:#FFFFFF url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/homepage/pod.footer.gif) no-repeat scroll center bottom;
+	float:left;
+	margin:0 0 9px;
+	position:relative;
+	width:300px;
+}
+.nbaHPodContent ul {
+	margin:7px 12px 5px;
+}
+.nbaHPodContent li {
+	list-style-image:none;
+	list-style-position:inside;
+	list-style-type:none;
+	padding:2px 0;
+	white-space:nowrap;
+}
+.nbaPhotoItem {
+	float:left;
+	height:260px;
+	left:-10px;
+	position:relative;
+	text-align:center;
+	width:260px;
+}
+.nbaPhotoImg {
+	height:198px;
+	position:relative;
+	width:259px;
+	z-index:4000;
+}
+.nbaPhotoNum {
+	float:left;
+	margin:5px;
+	position:relative;
+	width:50px;
+}
+.nbaPhotoTease {
+	float:left;
+	margin:5px;
+	position:relative;
+	text-align:center;
+	width:190px;
+}
+.nbaHPodContent li a {
+	padding-left:5px;
+}
+.nbaPhotoGall .next_button {
+	background:transparent url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/homepage/photo.rgt.arrow.gif) no-repeat scroll center center;
+	cursor:pointer;
+	float:left;
+	height:215px;
+	width:12px;
+	z-index:100;
+}
+
+.nbaPhotoGall .nbaHPPodsMore {
+	position:absolute;
+	top:255px;
+}
+.nbaHPPodsMore {
+	float:left;
+	padding-right:7px;
+	position:relative;
+	right:0;
+	text-align:right;
+	width:292px;
+}
+#nbaGICommun .nbaShare{
+    height:18px;
+    float:left;
+    position:static !important;
+    margin:10px 15px 0 0;
+        }
+#nbaGICommun .nbaShareLike{
+    height:20px;
+    float:left;
+    margin:10px 15px 0 0;
+        }
+#nbaGICommun .nbaShareTweet{
+     height:20px;
+     float:left;
+     margin-top:10px;
+        }
+#nbaGICommun .nbaTeams {
+	border-left:1px solid #CCCCCC;
+	float:left;
+	height:38px;
+	width:65px;
+	margin-left:15px;
+}
+#nbaGICommun .nbaTeams p {
+	/*bottom:10px;*/
+	font-size:10px;
+	left:5px;
+	position:relative;
+	text-align:center;
+}
+#nbaGICommun .nbaTeams ul {
+	left:5px;
+	position:relative;
+	text-align:center;
+}
+#nbaGICommun .nbaTeams ul li {
+	display:inline;
+	font-size:11px;
+}
+/*-------Launch League Pass--------*/
+.nbaLP{
+	width:344px;
+	height:77px;
+	clear:both;
+	margin:0px auto;
+	background:url(http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/gameinfo/nba.LP.Bg.jpg) no-repeat;
+	position:relative;
+	top:35px;
+}
+
+.nbaLP a img{
+	position:relative;
+	top:45px;
+	left:120px;
+}
+
+.even:hover,
+.odd:hover
+{background:#EAEAEA;}
+
+.nbaAboveGameTracker {line-height:20px}
+#nbaGameTracker{margin-top:-5px;}
+.nbaAboveGTLeft{margin-bottom:5px !important}
+
