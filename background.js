@@ -46,8 +46,8 @@ var getInfo = {
                         if (i==0)
                         {
                             current = responseText;
-                            visitor = game.visitor.team_key;
-                            home = game.home.team_key;
+                            visitor = responseText.payload.awayTeam.profile.abbr;
+                            home =  responseText.payload.homeTeam.profile.abbr;
                         }
                     },
                     error: function (xhr, ajaxOptions, thrownError) {

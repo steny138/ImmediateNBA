@@ -43,10 +43,10 @@ function setGameList()
         var cur = currents[i];
         var _visitor = visitors[i];
         var _home = homes[i];
-        var gameTitle = _home.team_key + ' vs ' + _visitor.team_key;
+        var gameTitle = _home.profile.name + ' vs ' + _visitor.profile.name;
         $('#menu-bar').append(createMenuItem(gameTitle));
 
-        $('#game-menu').append(createSelectMenuItem(gameTitle, _home.team_key + _visitor.team_key));
+        $('#game-menu').append(createSelectMenuItem(gameTitle, _home.profile.abbr + _visitor.profile.abbr));
     };
 }
 
@@ -97,14 +97,11 @@ $(document).ready(function() {
             var cur = currents[i];
             var _visitor = visitors[i];
             var _home = homes[i];
-            var gameTitle = _home.team_key + _visitor.team_key;
+            var gameTitle = _home.profile.abbr + _visitor.profile.abbr;
             if (gameTitle === $.trim($(this).find('option:selected').val()))
             {
-                 var $gameHtml = $($(cur).find('textarea').val());
-                $gameHtml = $('<div />').append($gameHtml);
-                $gameHtml .find('div').remove();
-                $("#detail").html($gameHtml);
-                setGameTeamsImage(_visitor.team_key, _home.team_key);
+                
+                setGameTeamsImage(_visitor.profile.abbr, _home.profile.abbr);
                 setGameTeamsScore(_visitor, _home);
             }
         };
