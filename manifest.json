@@ -1,7 +1,8 @@
 {
     "name": "ImmediateNBA",
     "manifest_version": 2,
-    "version": "1.0.0",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "version": "1.1.0",
     "description": "Immediate NBA Score",
     "icons": {
         "16": "images/icon_16.png",
@@ -14,7 +15,8 @@
     },
     "permissions": [
         "tabs",
-        "http://data.nba.com/"
+        "http://data.nba.com/",
+        "http://tw.global.nba.com/"
     ],
     "browser_action": {
         "default_icon": "images/icon.png",

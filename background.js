@@ -4,6 +4,7 @@ var current;
 var host = 'http://data.nba.com/'
 var gamesUrl = 'jsonp/5s/json/cms/noseason/scoreboard/';
 var dataUrl = 'data/10s/html/nbacom/2015/gameinfo/';
+var newUrl = 'http://tw.global.nba.com/stats2/game/snapshotlive.json?countryCode=TW&locale=zh_TW&gameId=';
 var reqeustInterval = 1000 * 60 * 5;
 var visitor;
 var home;
@@ -30,32 +31,29 @@ var getInfo = {
         var games = data.sports_content.games.game;
         if(games.length > 0){
             var csi = '' + new Date().getHours()+ new Date().getMinutes() + new Date().getSeconds();
-            //var game = games[0];
-
             for (var i = 0; i < games.length; i++) {
                 var game = games[i];
                 $.ajax({
-                url: host + dataUrl + game.date + '/' + game.id + '_boxscore_csi.html?&csiID=csi' + csi ,
-                type: "GET",
-                dataType: 'text',
-                 async: false,
-                success: function (responseText) {
-                    currents.push(responseText);
-                    visitors.push(game.visitor);
-                    homes.push(game.home);
-                    if (i==0)
-                    {
-                        current = responseText;
-                        visitor = game.visitor.team_key;
-                        home = game.home.team_key;
+                    url: newUrl + game.id,
+                    type: "GET",
+                    dataType: 'json',
+                    async: false,
+                    success: function (responseText) {
+                        currents.push(responseText);
+                        visitors.push(responseText.payload.awayTeam);
+                        homes.push(responseText.payload.homeTeam);
+                        console.log(homes);
+                        if (i==0)
+                        {
+                            current = responseText;
+                            visitor = game.visitor.team_key;
+                            home = game.home.team_key;
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        errorCode = '抓不到資料我好難過2';
                     }
-                    errorCode = '';
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    errorCode = '抓不到資料我好難過2';
-                }
-            });
-
+                });
             };
         }
         else
@@ -67,10 +65,11 @@ var getInfo = {
 
 function getGames(feedDate)
 {
+	feedDate.setDate(feedDate.getDate() - 1);
+
     var currYear = feedDate.getFullYear();
     var currMonth = ((feedDate.getMonth()+1) < 10) ? '0'+(feedDate.getMonth()+1) : feedDate.getMonth()+1;
-    var currDate = (feedDate.getDate()-1 < 10) ? '0'+(feedDate.getDate()-1) : (feedDate.getDate()-1);
-    console.log(host + gamesUrl + currYear + currMonth + currDate + '/games.json');
+    var currDate = (feedDate.getDate() < 10) ? '0'+(feedDate.getDate()) : (feedDate.getDate());
     $.ajax({
         'url': host + gamesUrl + currYear + currMonth + currDate + '/games.json',
         'type': "GET",

@@ -3,34 +3,130 @@
 <head>
     <meta charset="utf-8" />
     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="handlebars.min-latest.js"></script>
     <link rel="stylesheet" href="popup.css?20151028">
     <link rel="stylesheet" href="popup_other.css?20151105">
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div bindonce="" class="sib-game-stats-paginate ng-scope" data-ng-repeat="teamData in teams">
+            <table class="sib-zebra-stripes no-sort ng-scope" data-ng-if="!paginate">
+                <thead>
+                    <tr class="team-title">
+                        <td colspan="20">
+                            <a sib-team-urls="" team="teamData.profile" data-ng-href="/teams/#!/kings" class="anchor-unstyled ng-isolate-scope" href="/teams/#!/kings">
+                                <span>{{profile.name}}</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="headers">
+                        <th class="name">姓名</th>
+                        <th class="center">上場時間</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.points'}" data-ng-click="sortTable('statTotal.points')" data-ng-i18next="_stats.PTS">得分</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.fgm'}" data-ng-click="sortTable('statTotal.fgm')" data-ng-i18next="_stats.FGM">投籃命中</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.fga'}" data-ng-click="sortTable('statTotal.fga')" data-ng-i18next="_stats.FGA">投籃出手</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.fgpct'}" data-ng-click="sortTable('statTotal.fgpct')" data-ng-i18next="_stats.FG%">投籃%</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.tpm'}" data-ng-click="sortTable('statTotal.tpm')" data-ng-i18next="_stats.3PM">三分球命中數</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.tpa'}" data-ng-click="sortTable('statTotal.tpa')" data-ng-i18next="_stats.3PA">三分球出手數</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.tppct'}" data-ng-click="sortTable('statTotal.tppct')" data-ng-i18next="_stats.3P%">三分球%</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.ftm'}" data-ng-click="sortTable('statTotal.ftm')" data-ng-i18next="_stats.FTM">罰球命中</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.fta'}" data-ng-click="sortTable('statTotal.fta')" data-ng-i18next="_stats.FTA">罰球次數</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.ftpct'}" data-ng-click="sortTable('statTotal.ftpct')" data-ng-i18next="_stats.FT%">罰球%</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.offRebs'}" data-ng-click="sortTable('statTotal.offRebs')" data-ng-i18next="_stats.OFF">進攻籃板</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.defRebs'}" data-ng-click="sortTable('statTotal.defRebs')" data-ng-i18next="_stats.DEF">防守籃板</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.rebs'}" data-ng-click="sortTable('statTotal.rebs')" data-ng-i18next="_stats.REB">籃板</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.assists'}" data-ng-click="sortTable('statTotal.assists')" data-ng-i18next="_stats.AST">助攻</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.steals'}" data-ng-click="sortTable('statTotal.steals')" data-ng-i18next="_stats.STL">抄截</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.blocks'}" data-ng-click="sortTable('statTotal.blocks')" data-ng-i18next="_stats.BLK">阻攻</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.turnovers'}" data-ng-click="sortTable('statTotal.turnovers')" data-ng-i18next="_stats.TO">失誤</th>
+                        <th class="center" data-ng-class="{sorted: predicate=='statTotal.fouls'}" data-ng-click="sortTable('statTotal.fouls')" data-ng-i18next="_stats.PF">犯規</th>
+                        <th class="center" data-ng-show="showPlusMinus" data-ng-class="{sorted: predicate=='statTotal.boxscore.plusMinus'}" data-ng-click="sortTable('statTotal.plusMinus')" data-ng-i18next="_stats.plusMinus">+/-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each gamePlayers}}
+                    <tr data-ng-repeat="playerGameStats in teamData.gamePlayers  |orderBy:predicate:reverse" data-ng-show="playerGameStats.boxscore.dnpReason == ''" class="ng-scope">
+                        <td class="name">
+                            <a bo-href="'/players/#!/'+playerGameStats.profile.code" sib-player-urls="" team="teamData.profile" class="ng-isolate-scope" href="/players/#!/rudy_gay">
+                                <span data-ng-bind-html="playerGameStats.profile.firstName" class="ng-binding">{{profile.displayName}}</span>
+                            </a>
+                        </td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.mins + ':' +playerGameStats.statTotal.secs">{{statTotal.mins}}:{{statTotal.secs}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.points">{{statTotal.points}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.fgm">{{statTotal.fgm}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.fga">{{statTotal.fga}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.fgpct | number:1">{{statTotal.fgpct}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.tpm">{{statTotal.tpm}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.tpa">{{statTotal.tpa}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.tppct | number:1">{{statTotal.tppct}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.ftm">{{statTotal.ftm}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.fta">{{statTotal.fta}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.ftpct | number:1">{{statTotal.ftpct}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.offRebs">{{statTotal.offRebs}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.defRebs">{{statTotal.defRebs}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.rebs">{{statTotal.rebs}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.assists">{{statTotal.assists}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.steals">{{statTotal.steals}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.blocks">{{statTotal.blocks}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.turnovers">{{statTotal.turnovers}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.statTotal.fouls">{{statTotal.fouls}}</td>
+                        <td class="center statrow" bo-text="playerGameStats.boxscore.plusMinus" data-ng-show="showPlusMinus">{{boxscore.plusMinus}}</td>
+                    </tr>
+                    {{/each}}
+                    <tr class="caption">
+                        <td colspan="100%">
+                            <h6 data-ng-i18next="playerProfile.stats.tot">總計</h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>—</td>
+                        <td data-ng-hide="teamData.gamePlayers[0].profile.position===null" class="">—</td>
+                        <td class="center statrow" bo-text="teamData.score.mins || '—'">{{score.mins}}</td>
+                        <td class="center statrow " bo-text="teamData.score.score || '0'">{{score.score}}</td>
+                        <td class="center statrow " bo-text="teamData.score.fgm || '0'">{{score.fgm}}</td>
+                        <td class="center statrow " bo-text="teamData.score.fga || '0'">{{score.fga}}</td>
+                        <td class="center statrow " bo-text="teamData.score.fgpct | number:1 || '—'">{{score.fgpct}}</td>
+                        <td class="center statrow " bo-text="teamData.score.tpm || '0'">{{score.tpm}}</td>
+                        <td class="center statrow " bo-text="teamData.score.tpa || '0'">{{score.tpa}}</td>
+                        <td class="center statrow " bo-text="teamData.score.tppct  | number:1 || '—'">{{score.tppct}}</td>
+                        <td class="center statrow " bo-text="teamData.score.ftm || '0'">{{score.ftm}}</td>
+                        <td class="center statrow " bo-text="teamData.score.fta || '0'">{{score.fta}}</td>
+                        <td class="center statrow " bo-text="teamData.score.ftpct | number:1 || '—'">{{score.ftpct}}</td>
+                        <td class="center statrow " bo-text="teamData.score.offRebs || '0'">{{score.offRebs}}</td>
+                        <td class="center statrow " bo-text="teamData.score.defRebs || '0'">{{score.defRebs}}</td>
+                        <td class="center statrow " bo-text="teamData.score.rebs || '0'">{{score.rebs}}</td>
+                        <td class="center statrow " bo-text="teamData.score.assists || '0'">{{score.assists}}</td>
+                        <td class="center statrow " bo-text="teamData.score.steals || '0'">{{score.steals}}</td>
+                        <td class="center statrow " bo-text="teamData.score.blocks || '0'">{{score.blocks}}</td>
+                        <td class="center statrow " bo-text="teamData.score.turnovers || '0'">{{score.turnovers}}</td>
+                        <td class="center statrow " bo-text="teamData.score.fouls || '0'">{{score.fouls}}</td>
+                        <td data-ng-show="showPlusMinus" class="center statrow" bo-text="'—'">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </script>
 </head>
 
 <body>
     <div id="current" style="width: 100%">
         <div style="display:none;">
-
             <ul id="menu-bar" class="vert-one">
-                
             </ul>
             <div class="location"> >>> </div>
         </div>
         <div>
             <select name="game-menu" id="game-menu"></select>
         </div>
-
         <div id="temp" class="hide"></div>
-        <div id="games" class="hide">
+        <div id="games" class="hide sib-table-container sib-table-game-stats-player" style="user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
             <div id="home">
-                <img src="images/teams/NBA.png" height="64" width="64" />
+                <img src="images/teams/NBA.png" height="64" width="64"/>
                 <div id="home_score" class="score"></div>
             </div>
             <div id="vs">
-                <img src="images/vs.png" height="64" width="64" alt="">
+                <img src="images/vs.png" height="64" width="64" alt="" class="hide">
             </div>
             <div id="visitor">
-                <img src="images/teams/NBA.png" height="64" width="64" />
+                <img src="images/teams/NBA.png" height="64" width="64"/>
                 <div id="visitor_score" class="score"></div>
             </div>
         </div>

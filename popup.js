@@ -25,6 +25,7 @@ function renderPage() {
     {
     	$("#games").removeClass('hide');
     	setGameTeamsImage(bgPage.visitor, bgPage.home);
+        console.log(visitors);
         setGameTeamsScore(visitors[0], homes[0]);
     }
     setGameList()
@@ -78,9 +79,16 @@ function setGameTeamsImage(tvisitor, thome)
 }
 function setGameTeamsScore(tvisitor, thome)
 {
-    $('div#home_score').text(thome.score);
-    $('div#visitor_score').text(tvisitor.score);
+    //render html home team & away team
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+    var result_home = template(thome);
+    var result_away = template(tvisitor);
+
+    $('div#home_score').html(result_home);
+    $('div#visitor_score').html(result_away);
 }
+
 $(document).ready(function() {
     renderPage();
     $('#game-menu').change(function()
