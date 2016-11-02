@@ -77,7 +77,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>—</td>
                         <td data-ng-hide="teamData.gamePlayers[0].profile.position===null" class="">—</td>
                         <td class="center statrow" bo-text="teamData.score.mins || '—'">{{score.mins}}</td>
                         <td class="center statrow " bo-text="teamData.score.score || '0'">{{score.score}}</td>
@@ -117,16 +116,24 @@
             <select name="game-menu" id="game-menu"></select>
         </div>
         <div id="temp" class="hide"></div>
+        <div id="gameTitle" class="hide">
+            <span id="home">
+                <img src="images/teams/NBA.png" height="64" width="64"/>
+                <span class="score"></span>
+            </span>
+            <span id="vs">  
+                <img src="images/vs.png" height="64" width="64" alt="">
+            </span>
+            <span id="visitor">
+                <span class="score"></span>
+                <img src="images/teams/NBA.png" height="64" width="64"/>
+            </span>
+        </div>
         <div id="games" class="hide sib-table-container sib-table-game-stats-player" style="user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
             <div id="home">
-                <img src="images/teams/NBA.png" height="64" width="64" class="ab ab-left" />
                 <div id="home_score" class="score"></div>
             </div>
-            <div id="vs">
-                <img src="images/vs.png" height="64" width="64" alt="" class="hide ab ab-center">
-            </div>
             <div id="visitor">
-                <img src="images/teams/NBA.png" height="64" width="64" class="ab ab-right"/>
                 <div id="visitor_score" class="score"></div>
             </div>
         </div>

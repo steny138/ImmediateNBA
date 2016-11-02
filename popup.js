@@ -22,10 +22,12 @@ function renderPage() {
     }
     else
     {
+        $("#gameTitle").removeClass('hide');
     	$("#games").removeClass('hide');
     	setGameTeamsImage(bgPage.visitor, bgPage.home);
         setGameTeamsScore(visitors[0], homes[0]);
     }
+
     setGameList()
 
     var $gameHtml = $($(current).find('textarea').val());
@@ -68,11 +70,12 @@ function setGameTeamsImage(tvisitor, thome)
 {
 	if(tvisitor > '')
 	{
-		$('div#visitor img').attr('src', 'images/teams/svg/'+ tvisitor +'_logo.svg');
+		$('div#gameTitle>span#visitor img').attr('src', 'images/teams/svg/'+ tvisitor +'_logo.svg');
 	}
+
 	if(thome > '')
 	{
-		$('div#home img').attr('src', 'images/teams/svg/'+ thome +'_logo.svg');
+		$('div#gameTitle>span#home img').attr('src', 'images/teams/svg/'+ thome +'_logo.svg');
 	}
 }
 function setGameTeamsScore(tvisitor, thome)
@@ -85,6 +88,10 @@ function setGameTeamsScore(tvisitor, thome)
 
     $('div#home_score').html(result_home);
     $('div#visitor_score').html(result_away);
+
+    $('div#gameTitle>span#home>span.score').text(thome.score.score);
+    $('div#gameTitle>span#visitor>span.score').text(tvisitor.score.score);
+
 }
 
 $(document).ready(function() {
@@ -98,7 +105,6 @@ $(document).ready(function() {
             var gameTitle = _home.profile.abbr + _visitor.profile.abbr;
             if (gameTitle === $.trim($(this).find('option:selected').val()))
             {
-                
                 setGameTeamsImage(_visitor.profile.abbr, _home.profile.abbr);
                 setGameTeamsScore(_visitor, _home);
             }
