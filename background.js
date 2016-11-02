@@ -42,7 +42,6 @@ var getInfo = {
                         currents.push(responseText);
                         visitors.push(responseText.payload.awayTeam);
                         homes.push(responseText.payload.homeTeam);
-                        console.log(homes);
                         if (i==0)
                         {
                             current = responseText;

@@ -15,7 +15,6 @@ function renderPage() {
     visitors = bgPage.visitors;
     homes = bgPage.homes;
     
-
     if(errorCode > '')
     {
     	$("#temp").html(errorCode);
@@ -25,7 +24,6 @@ function renderPage() {
     {
     	$("#games").removeClass('hide');
     	setGameTeamsImage(bgPage.visitor, bgPage.home);
-        console.log(visitors);
         setGameTeamsScore(visitors[0], homes[0]);
     }
     setGameList()
